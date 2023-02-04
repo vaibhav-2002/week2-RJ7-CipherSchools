@@ -2,8 +2,12 @@ import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./Header";
 import SignUpForm from "./SignUpForm";
-
+import Photos from "./component/Photos";
+import higherOderComponent from "./component/Hoc";
 const App = () => {
+  const TestApp = higherOderComponent(() => {
+    return <h1>This is a test</h1>;
+  });
   return (
     <div>
       <BrowserRouter>
@@ -20,6 +24,8 @@ const App = () => {
             element={<h1>This is an About Page</h1>}
           ></Route>
           <Route path={"/signup"} element={<SignUpForm></SignUpForm>}></Route>
+          <Route path={"/photos"} element={<Photos></Photos>}></Route>
+          <Route path={"/test"} element={<TestApp></TestApp>}></Route>
         </Routes>
       </BrowserRouter>
     </div>
